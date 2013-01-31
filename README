@@ -1,0 +1,8 @@
+This fsync tester was initially written by Ted T'so and updated by Chris Mason.
+
+The version in this repository is used by the Ceph project in testing and
+has seen some updates to make it work better in that context.
+
+The only change prior to the initial commit was a switch from 8GB to 256MB
+for hte test file (because we often run tests against a small cluster, and 8GB
+takes longer than is necessary to exercise the functionality we're worried about).
