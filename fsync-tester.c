@@ -139,7 +139,7 @@ int main(int argc, char **argv)
 
 		if (timeval_subtract(&tv2, &start) > 60)
 			break;
-		sleep(4);
+		sleep(1);
 	}
 	printf("run done %d fsyncs total, killing random writer\n", i + 1);
 	fflush(stdout);
