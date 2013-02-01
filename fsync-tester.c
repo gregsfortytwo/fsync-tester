@@ -127,11 +127,15 @@ int main(int argc, char **argv)
 
 		pwrite_time = timeval_subtract(&tv, &tv2);
 
-		fsync(fd);
+		ret = fsync(fd);
 		gettimeofday(&tv2, NULL);
 
 		printf("write time: %5.4fs fsync time: %5.4fs\n", pwrite_time,
 		       timeval_subtract(&tv2, &tv));
+		if (ret) {
+			printf("last fsync failed! with return code %i", ret);
+			return r;
+		}
 
 		if (timeval_subtract(&tv2, &start) > 60)
 			break;
